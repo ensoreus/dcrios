@@ -101,6 +101,7 @@ struct Transaction : Decodable {
     var Height = 0
     var Debits:[Debit]?
     var Credits:[Credit]?
+    
 }
 
 struct Credit : Decodable{
@@ -109,6 +110,14 @@ struct Credit : Decodable{
     var Internal: Bool = false
     var Amount: Int64 = 0
     var Address = ""
+}
+
+extension Transaction{
+    var dcrAmount : Int64{
+        get {
+            return Amount / 100000000
+        }
+    }
 }
 
 extension Credit {

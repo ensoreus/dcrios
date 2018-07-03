@@ -18,11 +18,11 @@ import UIKit
 
 struct TransactionTableViewCellData {
     
-    init(data: Dictionary<String, String>) {
-        self.trStatus = data["status"]!
-        self.trType = data["type"]!
-        self.trAmount = data["amount"]!
-        self.trDate = data["date"]!
+    init(data: TransactionHistoryItem) {
+        self.trStatus = data.status!
+        self.trType = data.txType!
+        self.trAmount = data.amount!
+        self.trDate = data.date!
         
     }
     var trStatus: String
