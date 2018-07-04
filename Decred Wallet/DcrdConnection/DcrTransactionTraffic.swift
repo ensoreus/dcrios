@@ -13,6 +13,7 @@ protocol DcrSendTransactionProtocol: DcrdBaseProtocol{
     func prepareTransaction(from account:Int32, to address:String, amount:Int64, shouldBeConfirmed:Bool)
     func signTransaction(transaction: WalletConstructTxResponse, password:Data) -> Data?
     func publish(transaction:Data)  -> Data?
+    func receive(transaction:Data) -> String?
 }
 
 extension DcrSendTransactionProtocol{
@@ -24,6 +25,9 @@ extension DcrSendTransactionProtocol{
     }
     func publish(transaction:Data) throws -> Data?{
         return try wallet?.publishTransaction(transaction)
+    }
+    func  receive(transaction:Data) -> String?{
+        return nil
     }
 }
 

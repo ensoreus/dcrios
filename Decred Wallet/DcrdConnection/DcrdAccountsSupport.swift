@@ -10,7 +10,7 @@ import Foundation
 
 protocol DcrAccountsManagementProtocol : DcrdBaseProtocol{
     func getAccounts() -> GetAccountResponse?
-    func nextAccount(name:String, passwd:String, onSuccess:SuccessCallback, onFailure:FailureCallback) -> Bool
+    func nextAccount(name:String, passwd:String) -> Bool
     func getCurrentAddress(account: Int32) -> String
 }
 
@@ -27,8 +27,8 @@ extension DcrAccountsManagementProtocol{
         return account
     }
     
-    func nextAccount(name:String, passwd:String, onSuccess:SuccessCallback, onFailure:FailureCallback) -> Bool{
-        return false
+    func nextAccount(name:String, passwd:String) -> Bool{
+        return  (wallet?.nextAccount(name, privPass: passwd.data(using: .utf8)))!
     }
     
     func getCurrentAddress(account: Int32) -> String {
