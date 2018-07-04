@@ -77,15 +77,7 @@ class TransactionHistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnFilter: DropMenuButton!
     
-//    var dic1 = [ "status":"Pending", "type" : "Credit", "amount" : "112.000000 DCR","date" : "23 Mar, 2018 10:30 pm" ] as Dictionary?
-//    var dic2 = [ "status":"Confirmed", "type" : "Debit", "amount" : "24.000000 DCR","date" : "23 Mar, 2018 10:30 pm" ] as Dictionary?
-//    var dic3 = [ "status":"Confirmed", "type" : "Debit", "amount" : "26.000000 DCR","date" : "23 Mar, 2018 10:30 pm" ] as Dictionary?
-//    var dic4 = [ "status":"Confirmed", "type" : "Debit", "amount" : "72.000000 DCR","date" : "23 Mar, 2018 10:30 pm" ] as Dictionary?
-//    var dic5 = [ "status":"Confirmed", "type" : "Credit", "amount" : "92.000000 DCR","date" : "23 Mar, 2018 10:30 pm" ] as Dictionary?
-    
     let filterMenu = ["ALL", "Regular", "Ticket", "Votes", "Revokes", "Sent"] as [String]
-    
-//    var mainContens = [Dictionary<String, String>]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
