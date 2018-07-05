@@ -71,11 +71,11 @@ class OverviewViewController: UIViewController, WalletGetTransactionsResponsePro
     }
     
     func onBlockNotificationError(_ err: Error!) {
-        
+        //nothing to do
     }
     
     func onTransactionConfirmed(_ hash: String!, height: Int32) {
-
+        //nothing to do
     }
     
     func onTransaction(_ transaction: String!) {
@@ -90,6 +90,10 @@ class OverviewViewController: UIViewController, WalletGetTransactionsResponsePro
             self.tableView.reloadData()
             self.updateCurrentBalance()
         }
+    }
+    
+    @IBAction func onRescan(_ sender: Any) {
+        AppContext.instance.decrdConnection?.fetchTransactions()
     }
 }
 

@@ -10,8 +10,9 @@ import Foundation
 
 protocol DcrAccountsManagementProtocol : DcrdBaseProtocol{
     func getAccounts() -> GetAccountResponse?
-    func nextAccount(name:String, passwd:String) -> Bool
+    func createAccount(name:String, passwd:String) -> Bool
     func getCurrentAddress(account: Int32) -> String
+    func getSpendable(account:AccountsEntity, onGotSpendable:(Int64)->Void) throws
 }
 
 extension DcrAccountsManagementProtocol{
@@ -27,7 +28,7 @@ extension DcrAccountsManagementProtocol{
         return account
     }
     
-    func nextAccount(name:String, passwd:String) -> Bool{
+    func createAccount(name:String, passwd:String) -> Bool{
         return  (wallet?.nextAccount(name, privPass: passwd.data(using: .utf8)))!
     }
     
@@ -40,4 +41,11 @@ extension DcrAccountsManagementProtocol{
         }
         return result
     }
+    
+    func getSpendable(account:AccountsEntity, onGotSpendable:(Int64)->Void) throws{
+        let spendable = UnsafeMutablePointer<Int64>.allocate(capacity: 1)
+        try wallet?.spendable(forAccount: account.Number, requiredConfirmations: 1, ret0_: spendable)
+        onGotSpendable(spendable.pointee)
+    }
+    
 }
