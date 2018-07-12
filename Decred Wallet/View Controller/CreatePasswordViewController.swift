@@ -38,6 +38,10 @@ class CreatePasswordViewController: UIViewController, SeedCheckupProtocol, UITex
         btnEncrypt.isEnabled = (tfPassword.text == tfVerifyPassword.text) && !(tfPassword.text?.isEmpty)!
     }
     
+    @IBAction func onBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func onEncrypt(_ sender: Any) {
         do{
             progressHud?.show(animated: true)

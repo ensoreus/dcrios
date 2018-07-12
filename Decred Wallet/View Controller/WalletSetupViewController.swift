@@ -16,9 +16,7 @@ class WalletSetupViewController : UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    @IBAction func btn_create_wallet(_ sender: Any) {
-        
-    }
+    
     @IBAction func btn_recover_wallet(_ sender: Any) {
         let trController = RecoverWalletViewController(nibName: "RecoverWalletViewController", bundle: nil) as RecoverWalletViewController!
         self.navigationController?.pushViewController(trController!, animated: true)

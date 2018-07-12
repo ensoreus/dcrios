@@ -33,7 +33,6 @@ class GeneratedSeedDisplayViewController: UIViewController {
         vWarningLabel.layer.borderColor = GlobalConstants.Colors.orangeColor.cgColor
         vWarningIcon.layer.borderColor = GlobalConstants.Colors.orangeColor.cgColor
         vWarningLabel.superview?.layer.borderColor = GlobalConstants.Colors.orangeColor.cgColor
-
         self.drawSeed()
     }
     
@@ -100,7 +99,10 @@ class GeneratedSeedDisplayViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    @IBAction func onBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var vc = segue.destination as! SeedCheckupProtocol
         vc.seedToVerify = seed
