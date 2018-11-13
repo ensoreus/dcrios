@@ -18,13 +18,10 @@ class TransactiontOutputDetailsCell: UITableViewCell {
             self.addSubrow(with: credit)
         }
         alcCreditStackHeight.constant = CGFloat(45 * credits.count)
+        self.viewContainer.isHidden = false
     }
     
-    @IBAction func hideOrExpandAction(_ sender: UIButton) {
-        self.viewContainer.isHidden = !self.viewContainer.isHidden
-        
-        expandOrCollapse?()
-    }
+    @IBAction func hideOrExpandAction(_ sender: UIButton) { }
     
     private func addSubrow(with credit: Credit){
         let subrow = UIView(frame: CGRect(x:0.0, y:0.0, width:self.frame.size.width, height:45.0))

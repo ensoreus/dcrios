@@ -17,12 +17,10 @@ class TransactiontInputDetails: UITableViewCell {
             self.addSubrow(with: debit)
         }
         alcDebitStackHeight.constant = CGFloat(45 * debits.count)
+        self.viewCotainer.isHidden = false
     }
     
-    @IBAction func hideOrExpandAction(_ sender: UIButton) {
-        self.viewCotainer.isHidden = !self.viewCotainer.isHidden
-        expandOrCollapse?()
-    }
+    @IBAction func hideOrExpandAction(_ sender: UIButton) { }
     
     private func addSubrow(with debit: Debit){
         let subrow = UIView(frame: CGRect(x:0.0, y:0.0, width:self.frame.size.width, height:45.0))
